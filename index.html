@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Grade 5 Top Stars: Tony's Pizza Place interactive English lesson by Mr. Khalil Mohammed." name="description"/>
+<title>Top Stars: At the Pizza Place | Grade 5 English — Mr. Khalil Mohammed</title>
+<style>
+:root{
+ --green:#167653;--green-dark:#10543c;--gold:#c6a34c;--ink:#1d2a25;
+ --muted:#5e6b65;--line:#d8e1dc;--paper:#fff;--bg:#f2f6f3;
+ --soft-green:#eaf5ef;--soft-gold:#fbf6e8;--red:#b42318;--soft-red:#fff0ef;
+ --blue:#255a8c;--soft-blue:#eef5fb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+.page{max-width:1160px;margin:22px auto;padding:0 18px 42px}
+.sheet-header,.panel,.toolbar,.result-panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 18px rgba(22,65,45,.06)}
+.sheet-header{padding:23px 26px 19px;border-top:6px solid var(--green);position:relative;background:linear-gradient(180deg,#ffffff 0%,#fbfdfb 100%)}
+.brand-row{display:grid;grid-template-columns:1fr minmax(300px,1.5fr) 82px;align-items:center;gap:18px}
+.school-info{font-family:Georgia,'Times New Roman',serif;color:var(--green);font-weight:bold;font-size:13px;line-height:1.45}
+.school-info .school-name{font-size:17px;color:var(--green-dark)}
+.title-panel{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.kicker{display:block;font-size:12px;letter-spacing:2px;color:var(--muted);font-weight:900;text-transform:uppercase;line-height:1.5}
+h1{display:block;font-family:Georgia,'Times New Roman',serif;font-size:clamp(30px,3.5vw,42px);letter-spacing:.4px;margin:5px 0 0;color:#263a31;line-height:1.15}
+.prepared{display:block;font-size:15px;color:var(--green-dark);font-weight:800;position:static;transform:none;white-space:normal;text-align:center;margin:9px auto 0;letter-spacing:.25px}
+.school-logo{display:block;width:78px;height:72px;object-fit:contain;justify-self:end}
+.student-line{display:flex;flex-wrap:wrap;gap:11px;align-items:center;margin-top:17px;padding-top:14px;border-top:1px solid var(--line)}
+.student-line label{font-weight:800;font-size:14px}
+input[type=text],select,textarea{font:inherit;color:var(--ink);background:#fff;border:1px solid #bccbc2;border-radius:8px;padding:9px 11px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(22,118,83,.12)}
+#studentName{flex:1;min-width:190px;max-width:430px}
+.grade-pill{margin-left:auto;background:var(--soft-gold);border:1px solid #ead9a7;color:#705716;padding:6px 13px;border-radius:999px;font-weight:800;font-size:13px}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:12px 14px;margin:14px 0;position:sticky;top:8px;z-index:10}
+.toolbar .hint{font-size:12px;color:var(--muted);margin-right:auto}
+button{border:0;border-radius:9px;padding:10px 15px;font-weight:800;font-size:13px;cursor:pointer;transition:transform .15s ease,filter .15s ease}
+button:hover{filter:brightness(.97);transform:translateY(-1px)}
+button:focus-visible{outline:3px solid #9ccdb5;outline-offset:2px}
+.primary{background:var(--green);color:#fff}.secondary{background:var(--soft-green);color:var(--green-dark);border:1px solid #c5dfd0}.plain{background:#f4f6f5;color:#31443a;border:1px solid var(--line)}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 18px}
+.nav a{display:inline-block;color:var(--green-dark);background:#fff;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:12px;font-weight:800;padding:7px 12px}
+.nav a:hover{border-color:var(--green);background:var(--soft-green)}
+.panel{padding:21px 23px;margin:16px 0;scroll-margin-top:88px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:16px}
+h2{font-family:Georgia,'Times New Roman',serif;font-size:22px;margin:0;color:#20382d;line-height:1.25}
+.section-sub{font-size:13px;color:var(--muted);margin-top:4px}
+.score-box{display:flex;align-items:stretch;white-space:nowrap;border:1px solid #353535;border-radius:5px;overflow:hidden;font-size:12px;flex-shrink:0}
+.score-box .label{background:#242424;color:#fff;font-weight:bold;padding:4px 9px}
+.score-box .points{background:#fff;min-width:34px;text-align:center;padding:4px 8px;font-weight:bold}
+.score-box .max{background:#e8ebea;border-left:1px solid #aaa;padding:4px 8px}
+.hero-strip{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch}
+.intro-card{background:linear-gradient(135deg,#fbf6e8,#f4f8f5);border:1px solid #e6d7a9;border-radius:13px;padding:18px}
+.eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#806b2c;font-weight:900}
+.intro-card h2{font-size:25px;margin:5px 0 8px}
+.intro-card p{margin:0;color:#46564d;font-size:15px}
+.learning-points{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.learning-point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;gap:10px;align-items:center}
+.learning-point .symbol{width:40px;height:40px;border-radius:11px;background:var(--soft-green);display:grid;place-items:center;font-size:21px;flex-shrink:0}
+.learning-point strong{display:block;color:var(--green-dark);font-size:14px}
+.learning-point small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.vocab-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.vocab-card{border:1px solid var(--line);border-radius:13px;background:linear-gradient(180deg,#fff,#fbfcfb);padding:14px 12px;text-align:center;min-width:0}
+.vocab-icon{width:58px;height:58px;border-radius:16px;background:var(--soft-gold);display:grid;place-items:center;margin:0 auto 8px;font-size:29px}
+.vocab-card h3{font-size:16px;color:var(--green-dark);margin:0 0 4px}
+.vocab-card p{font-size:12px;color:var(--muted);margin:0;min-height:36px}
+.audio{margin-top:9px;background:var(--soft-blue);color:var(--blue);border:1px solid #d2e3f1;border-radius:999px;padding:6px 11px;font-size:12px}
+.grammar-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grammar-card{border:1px solid var(--line);border-radius:13px;padding:16px;background:#fff}
+.grammar-card.have{border-top:4px solid var(--green)}
+.grammar-card.has{border-top:4px solid var(--gold)}
+.grammar-card h3{margin:0 0 7px;font-family:Georgia,serif;font-size:22px;color:var(--green-dark)}
+.grammar-card p{margin:4px 0;font-size:14px}
+.example{margin-top:10px;background:#f7faf8;border-radius:9px;padding:10px 12px;font-weight:700;color:#31483a;font-size:14px}
+.example b{color:var(--green)}
+.rule-note{background:var(--soft-gold);border:1px dashed #c6a34c;border-radius:10px;padding:11px 14px;margin-top:13px;font-size:13px;color:#66551f}
+.activity-list{display:grid;gap:12px}
+.question{border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:#fff}
+.question p{font-weight:700;margin:0 0 9px;font-size:15px}
+.options{display:flex;gap:8px;flex-wrap:wrap}
+.option{display:inline-flex;align-items:center;gap:6px;border:1px solid #cbd8d0;border-radius:8px;padding:7px 10px;font-size:14px;font-weight:600;cursor:pointer;background:#fff}
+.option input{accent-color:var(--green)}
+.feedback{font-size:12px;font-weight:800;margin-top:7px;min-height:16px}
+.correct{border-color:#2d8a56!important;background:#f0faf3!important}
+.incorrect{border-color:#c63c33!important;background:#fff5f4!important}
+.good{color:var(--green-dark)}.bad{color:var(--red)}
+.completion{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.completion-item{border:1px solid var(--line);border-radius:10px;padding:12px}
+.completion-item label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.completion-item input{width:100%}
+.homework-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.homework-card{border:1px solid var(--line);border-radius:12px;padding:15px;background:#fff}
+.homework-card .task-no{font-size:11px;font-weight:900;color:#8a702c;letter-spacing:1px}
+.homework-card h3{font-family:Georgia,serif;color:var(--green-dark);margin:5px 0;font-size:18px}
+.homework-card p{font-size:13px;color:#526159;margin:0 0 10px}
+.homework-card textarea{width:100%;min-height:88px;resize:vertical;font-size:13px}
+.result-panel{padding:18px 20px;margin:16px 0;display:flex;gap:16px;align-items:center}
+.result-panel .copy{flex:1}
+.result-panel h2{font-size:20px}
+.result-panel p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.total-score{font-size:28px;font-weight:900;color:var(--green-dark);white-space:nowrap}
+.progress{height:9px;background:#e4ece7;border-radius:99px;overflow:hidden;margin-top:11px}
+.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--green),#91c7a6);transition:width .25s}
+.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px}
+@media(max-width:760px){
+ .page{padding:0 9px 25px;margin:10px auto}.sheet-header{padding:14px}.brand-row{grid-template-columns:1fr 58px;gap:10px}.school-logo{grid-column:2;grid-row:1;width:56px;height:56px}.school-info{font-size:11px}.school-info .school-name{font-size:14px}.title-panel{grid-column:1/-1;grid-row:2}.prepared{position:static;transform:none;white-space:normal;margin:7px auto 0}h1{font-size:25px}.toolbar{position:static}.toolbar .hint{flex-basis:100%}.panel{padding:15px 12px}.hero-strip,.grammar-grid{grid-template-columns:1fr}.vocab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.homework-grid{grid-template-columns:1fr}.section-head{align-items:flex-start}
+}
+@media(max-width:430px){.learning-points{grid-template-columns:1fr}.completion{grid-template-columns:1fr}.student-line .grade-pill{margin-left:0}.total-score{font-size:23px}}
+@media print{
+ body{background:#fff}.page{max-width:none;margin:0;padding:0}.toolbar,.nav,.no-print,.audio{display:none!important}.sheet-header,.panel,.result-panel{box-shadow:none;border-radius:0;break-inside:avoid;margin:0 0 10px}.panel{padding:12px}.homework-card,.question,.vocab-card{break-inside:avoid}
+}
+
+/* Premium visual hierarchy — accessibility and classroom readability */
+:root{
+ --ink:#172b23; --muted:#4b5e54; --line:#cbd9d1;
+ --green:#126b4a; --green-dark:#0c5037;
+}
+body{font-size:17px;line-height:1.68;background:#edf3ef}
+.page{max-width:1240px;padding-left:22px;padding-right:22px}
+.sheet-header{padding:30px 32px 24px;border-top-width:8px;border-radius:20px;box-shadow:0 10px 30px rgba(19,69,47,.10)}
+.brand-row{grid-template-columns:1fr minmax(360px,1.7fr) 92px;gap:22px}
+.school-info{font-size:15px;line-height:1.55}
+.school-info .school-name{font-size:19px}
+.school-logo{width:88px;height:82px}
+.kicker{font-size:15px;letter-spacing:2.3px;font-weight:900;color:#52675c}
+h1{font-size:clamp(38px,4.4vw,54px);font-weight:800;letter-spacing:.2px;margin-top:8px;color:#183c2c}
+.prepared{font-size:19px;font-weight:800;margin-top:12px}
+.student-line{margin-top:22px;padding-top:18px;gap:14px}
+.student-line label{font-size:17px}
+input[type=text],select,textarea{font-size:17px;padding:12px 14px}
+.grade-pill{font-size:15px;padding:8px 16px}
+.toolbar{padding:15px 18px;gap:12px;border-radius:14px}
+.toolbar .hint{font-size:14px}
+button{font-size:15px;padding:12px 18px}
+.nav{gap:10px;margin:16px 0 22px}
+.nav a{font-size:14px;padding:9px 15px}
+.panel{padding:28px 30px;margin:22px 0;border-radius:18px;box-shadow:0 7px 22px rgba(22,65,45,.07)}
+.section-head{padding-bottom:17px;margin-bottom:22px;gap:18px}
+h2{font-size:29px;line-height:1.25}
+.section-sub{font-size:16px;line-height:1.55;margin-top:7px}
+.score-box{font-size:14px}
+.score-box .label,.score-box .points,.score-box .max{padding:7px 11px}
+.hero-strip{gap:20px}
+.intro-card{padding:24px;border-radius:16px}
+.eyebrow{font-size:13px}
+.intro-card h2{font-size:30px}
+.intro-card p{font-size:18px;line-height:1.65}
+.learning-points{gap:13px}
+.learning-point{padding:16px;gap:13px}
+.learning-point .symbol{width:48px;height:48px;font-size:25px}
+.learning-point strong{font-size:17px}
+.learning-point small{font-size:14px}
+.vocab-grid{gap:16px}
+.vocab-card{padding:18px 15px;border-radius:15px}
+.vocab-icon{width:68px;height:68px;font-size:34px}
+.vocab-card h3{font-size:20px;margin-bottom:7px}
+.vocab-card p{font-size:15px;line-height:1.55;min-height:46px}
+.audio{font-size:14px;padding:8px 14px}
+.grammar-grid{gap:18px}
+.grammar-card{padding:21px;border-radius:15px}
+.grammar-card h3{font-size:27px}
+.grammar-card p,.example{font-size:17px;line-height:1.65}
+.example{padding:13px 15px}
+.rule-note{font-size:16px;line-height:1.65;padding:15px 18px}
+.activity-list{gap:17px}
+.question{padding:20px 22px;border-radius:14px;border-left:5px solid var(--green);box-shadow:0 3px 12px rgba(24,60,42,.045)}
+.question p{font-size:21px;font-weight:800;line-height:1.5;margin:0 0 15px;color:#183c2c}
+.options{gap:11px}
+.option{font-size:17px;font-weight:600;padding:11px 15px;border-radius:10px;line-height:1.45}
+.option input{width:18px;height:18px;margin:0 2px 0 0}
+.feedback{font-size:15px;margin-top:12px;min-height:20px}
+.progress{height:12px;margin-top:18px}
+#progressText{font-size:15px}
+.completion{gap:16px}
+.completion-item{padding:17px}
+.completion-item label{font-size:17px}
+.result-panel{padding:24px 28px;border-radius:17px;box-shadow:0 7px 22px rgba(22,65,45,.07)}
+.result-panel h2{font-size:26px}
+.result-panel p{font-size:16px}
+.total-score{font-size:36px}
+.footer{font-size:14px;line-height:1.7;margin-top:24px}
+@media(max-width:760px){
+ .page{padding:0 10px 28px}.sheet-header{padding:18px}.brand-row{grid-template-columns:1fr 58px;gap:10px}.school-info{font-size:12px}.school-info .school-name{font-size:15px}.school-logo{width:56px;height:56px}.title-panel{grid-column:1/-1;grid-row:2}.kicker{font-size:12px;letter-spacing:1.5px}h1{font-size:34px}.prepared{font-size:16px;margin-top:8px}.panel{padding:21px 15px;margin:16px 0}.section-head{margin-bottom:17px}h2{font-size:24px}.section-sub{font-size:14px}.intro-card h2{font-size:26px}.intro-card p{font-size:16px}.vocab-card h3{font-size:18px}.vocab-card p{font-size:14px}.grammar-card h3{font-size:24px}.grammar-card p,.example{font-size:16px}.question{padding:17px 15px}.question p{font-size:19px}.option{font-size:16px;padding:10px 12px}.result-panel{padding:18px 16px}.result-panel h2{font-size:22px}.total-score{font-size:29px}
+}
+@media(max-width:430px){.question p{font-size:18px}.option{font-size:15px}.learning-point strong{font-size:16px}.completion-item label{font-size:16px}}
+@media print{body{font-size:15px}.panel{box-shadow:none;padding:18px}.question p{font-size:17px}.option{font-size:14px}.section-sub{font-size:13px}}
+
+
+.vocab-illustration{display:block;width:100%;height:154px;object-fit:cover;border-radius:12px;margin:0 auto 13px;background:#edf6fb;box-shadow:0 5px 14px rgba(24,73,104,.12);border:1px solid #dce9ef}
+.vocab-card{overflow:hidden}
+@media(max-width:650px){.vocab-illustration{height:138px}}
+@media print{.vocab-illustration{height:132px;box-shadow:none}}
+
+/* Final typography refinement: balanced lesson title */
+h1{
+  font-size:clamp(30px,3.5vw,43px) !important;
+  line-height:1.16;
+}
+@media (max-width:700px){
+  h1{font-size:28px !important}
+}
+@media (max-width:480px){
+  h1{font-size:26px !important}
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+<header class="sheet-header" id="top">
+<div class="brand-row">
+<div class="school-info"><div class="school-name">Al-Bayariq Private Schools</div><div>Educational Supervision Department</div><div>Primary Section</div></div>
+<div class="title-panel"><div class="kicker">Interactive English Practice · Grade 5</div><h1>Top Stars: At the Pizza Place</h1><div class="prepared">Prepared by <strong>Mr. Khalil Mohammed</strong></div></div>
+<img alt="Al-Bayariq Private Schools logo" class="school-logo" src="data:image/png;base64,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"/>
+</div>
+<div class="student-line"><label for="studentName">Student's Name:</label><input id="studentName" placeholder="Write your full name" type="text"/><label for="lessonDate">Date:</label><input id="lessonDate" placeholder="DD / MM / YYYY" style="max-width:145px" type="text"/><span class="grade-pill">GRADE 5</span></div>
+</header>
+<div class="toolbar no-print">
+<span class="hint">Explore the lesson, complete the activities, and check your answers.</span>
+<button class="primary" id="checkAll">Check All Answers</button>
+<button class="secondary" id="resetAll">Start Again</button>
+<button class="plain" onclick="window.print()">Print Lesson</button>
+</div>
+<nav aria-label="Lesson navigation" class="nav no-print">
+<a href="#overview">Lesson Overview</a><a href="#vocabulary">Vocabulary</a><a href="#grammar">Grammar</a><a href="#practice">Practice</a>
+</nav>
+<section class="panel" id="overview">
+<div class="section-head"><div><h2>01. Discover the Lesson</h2><div class="section-sub">Look at the key ideas before you begin.</div></div></div>
+<div class="hero-strip">
+<div class="intro-card"><div class="eyebrow">Today's learning mission</div><h2>Ordering Pizza &amp; Talking About Rules</h2><p>Join Greg, Kevin, Mark, and Tom at Tony's Pizza Place as they choose toppings and order food. Learn new restaurant and food words, and practise using <strong>have to</strong> and <strong>don't have to</strong>.</p></div>
+<div class="learning-points">
+<div class="learning-point"><div class="symbol">🍕</div><div><strong>Pizza Toppings</strong><small>Mushrooms, peppers, olives &amp; more</small></div></div>
+<div class="learning-point"><div class="symbol">🧾</div><div><strong>At the Restaurant</strong><small>Ordering food &amp; asking for the check</small></div></div>
+<div class="learning-point"><div class="symbol">🏫</div><div><strong>School Rules</strong><small>Duties we must or need not do</small></div></div>
+<div class="learning-point"><div class="symbol">✍️</div><div><strong>Grammar</strong><small>Have to / Don't have to</small></div></div>
+</div>
+</div>
+</section>
+<section class="panel" id="vocabulary">
+<div class="section-head"><div><h2>02. Key Vocabulary</h2><div class="section-sub">Read each word and listen to its pronunciation.</div></div></div>
+<div class="vocab-grid">
+<article class="vocab-card"><img alt="order" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICA8cmVjdCB4PSIxNzAiIHk9Ijc1IiB3aWR0aD0iMTcwIiBoZWlnaHQ9IjIzMCIgcng9IjE2IiBmaWxsPSIjZDk0YzQ1Ii8+CiAgPHJlY3QgeD0iMTg0IiB5PSI5MCIgd2lkdGg9IjE0MiIgaGVpZ2h0PSIyMDAiIHJ4PSIxMCIgZmlsbD0iI2ZmZmFmMCIvPgogIDx0ZXh0IHg9IjI1NSIgeT0iMTI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiNkOTRjNDUiPk1FTlU8L3RleHQ+CiAgPGxpbmUgeDE9IjIwNSIgeTE9IjE0NSIgeDI9IjMwNSIgeTI9IjE0NSIgc3Ryb2tlPSIjZTZjODhhIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxjaXJjbGUgY3g9IjIyMCIgY3k9IjE3NSIgcj0iMTQiIGZpbGw9IiNmM2I2M2YiLz48Y2lyY2xlIGN4PSIyMjAiIGN5PSIxNzUiIHI9IjkiIGZpbGw9IiNkOTRjNDUiLz4KICA8bGluZSB4MT0iMjQ1IiB5MT0iMTc1IiB4Mj0iMzAwIiB5Mj0iMTc1IiBzdHJva2U9IiM1ZTZiNjUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMjIwIiBjeT0iMjE1IiByPSIxNCIgZmlsbD0iIzJkOGE1NiIvPgogIDxsaW5lIHgxPSIyNDUiIHkxPSIyMTUiIHgyPSIzMDAiIHkyPSIyMTUiIHN0cm9rZT0iIzVlNmI2NSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSIyMjAiIGN5PSIyNTUiIHI9IjE0IiBmaWxsPSIjMjQ2ZWFlIi8+CiAgPGxpbmUgeDE9IjI0NSIgeTE9IjI1NSIgeDI9IjMwMCIgeTI9IjI1NSIgc3Ryb2tlPSIjNWU2YjY1IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxyZWN0IHg9IjM2NSIgeT0iMTM1IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjE2NSIgcng9IjEyIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNjYmQ4ZDAiIHN0cm9rZS13aWR0aD0iNCIvPgogIDxyZWN0IHg9IjM5NSIgeT0iMTIyIiB3aWR0aD0iNjAiIGhlaWdodD0iMjIiIHJ4PSI2IiBmaWxsPSIjMjQzYjU1Ii8+CiAgPHBhdGggZD0iTTM4OCAxNzUgTDM5OCAxODUgTDQxNSAxNjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzE2NzY1MyIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8bGluZSB4MT0iNDI1IiB5MT0iMTc3IiB4Mj0iNDY1IiB5Mj0iMTc3IiBzdHJva2U9IiM4M2ExYjUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTTM4OCAyMTUgTDM5OCAyMjUgTDQxNSAyMDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzE2NzY1MyIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KICA8bGluZSB4MT0iNDI1IiB5MT0iMjE3IiB4Mj0iNDY1IiB5Mj0iMjE3IiBzdHJva2U9IiM4M2ExYjUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjM4OCIgeTE9IjI1NyIgeDI9IjQ2NSIgeTI9IjI1NyIgc3Ryb2tlPSIjODNhMWI1IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L2c+PC9zdmc+"/><h3>order</h3><p>To ask for food or drinks in a restaurant.</p><button class="audio" data-say="order">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="check" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICA8cGF0aCBkPSJNMjEwIDY1IEg0MzAgVjMyMCBMNDA1IDMwNSBMMzgwIDMyMCBMMzU1IDMwNSBMMzMwIDMyMCBMMzA1IDMwNSBMMjgwIDMyMCBMMjU1IDMwNSBMMjMwIDMyMCBMMjEwIDMwNSBaIiBmaWxsPSIjZmZmIi8+CiAgPHJlY3QgeD0iMjQwIiB5PSI5NSIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIyOCIgcng9IjYiIGZpbGw9IiNlYWY1ZWYiLz4KICA8dGV4dCB4PSIzMjAiIHk9IjExNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjE4IiBmaWxsPSIjMTI2YjRhIj5DSEVDSyAvIEJJTEw8L3RleHQ+CiAgPGxpbmUgeDE9IjI0MCIgeTE9IjE0OCIgeDI9IjM0NSIgeTI9IjE0OCIgc3Ryb2tlPSIjN2Q5YmFkIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIzNzAiIHkxPSIxNDgiIHgyPSI0MDAiIHkyPSIxNDgiIHN0cm9rZT0iIzI0M2I1NSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMjQwIiB5MT0iMTgwIiB4Mj0iMzQ1IiB5Mj0iMTgwIiBzdHJva2U9IiM3ZDliYWQiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjM3MCIgeTE9IjE4MCIgeDI9IjQwMCIgeTI9IjE4MCIgc3Ryb2tlPSIjMjQzYjU1IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxsaW5lIHgxPSIyNDAiIHkxPSIyMTIiIHgyPSIzNDUiIHkyPSIyMTIiIHN0cm9rZT0iIzdkOWJhZCIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMzcwIiB5MT0iMjEyIiB4Mj0iNDAwIiB5Mj0iMjEyIiBzdHJva2U9IiMyNDNiNTUiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjIzNSIgeTE9IjI0MiIgeDI9IjQwNSIgeTI9IjI0MiIgc3Ryb2tlPSIjY2JkOGQwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1kYXNoYXJyYXk9IjggNiIvPgogIDx0ZXh0IHg9IjI0MiIgeT0iMjc2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiMxNzJiMjMiPlRPVEFMPC90ZXh0PgogIDx0ZXh0IHg9IjQwMCIgeT0iMjc2IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iMjIiIGZpbGw9IiNkOTRjNDUiPiQxNS4wMDwvdGV4dD4KPC9nPjwvc3ZnPg=="/><h3>check</h3><p>A piece of paper showing how much money to pay.</p><button class="audio" data-say="check">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="mushroom" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAsMTk1KSI+CiAgPHBhdGggZD0iTS00MiAxMCBMLTUwIDEwNSBRMCAxMjUgNTAgMTA1IEw0MiAxMCBaIiBmaWxsPSIjZjNlNmQzIiBzdHJva2U9IiNkNGJmYTMiIHN0cm9rZS13aWR0aD0iNCIvPgogIDxwYXRoIGQ9Ik0tMTI1IDE4IFEtMTI1IC0xMDUgMCAtMTA1IFExMjUgLTEwNSAxMjUgMTggUTYwIDMyIDAgMjIgUS02MCAzMiAtMTI1IDE4IFoiIGZpbGw9IiNhNjc0NDkiLz4KICA8ZWxsaXBzZSBjeD0iLTQ4IiBjeT0iLTQyIiByeD0iMTgiIHJ5PSIxMiIgZmlsbD0iI2Y3ZWJkYyIgb3BhY2l0eT0iMC44NSIvPgogIDxlbGxpcHNlIGN4PSIzOCIgY3k9Ii01NSIgcng9IjIyIiByeT0iMTQiIGZpbGw9IiNmN2ViZGMiIG9wYWNpdHk9IjAuODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAiIGN5PSItMTUiIHJ4PSIxNSIgcnk9IjEwIiBmaWxsPSIjZjdlYmRjIiBvcGFjaXR5PSIwLjg1Ii8+CiAgPGVsbGlwc2UgY3g9IjcyIiBjeT0iLTEyIiByeD0iMTQiIHJ5PSI5IiBmaWxsPSIjZjdlYmRjIiBvcGFjaXR5PSIwLjg1Ii8+CjwvZz48L3N2Zz4="/><h3>mushroom</h3><p>A soft vegetable with a round top and a stem.</p><button class="audio" data-say="mushroom">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="pepper" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAsMjAwKSI+CiAgPHBhdGggZD0iTS04IC04OCBRLTUgLTEyNSAyMiAtMTMwIFEzMCAtMTIyIDE0IC0xMTIgUTUgLTEwNCA2IC04NSBaIiBmaWxsPSIjMWM2ZTNiIi8+CiAgPGVsbGlwc2UgY3g9Ii01MiIgY3k9IjEwIiByeD0iNDYiIHJ5PSI5MiIgZmlsbD0iIzIzOWI1NiIvPgogIDxlbGxpcHNlIGN4PSI1MiIgY3k9IjEwIiByeD0iNDYiIHJ5PSI5MiIgZmlsbD0iIzIzOWI1NiIvPgogIDxlbGxpcHNlIGN4PSIwIiBjeT0iMTIiIHJ4PSI0OCIgcnk9Ijk4IiBmaWxsPSIjMmVjYzcxIi8+CiAgPHBhdGggZD0iTS0yMiAtNDggUS0zMiAtMTAgLTI0IDQ1IiBmaWxsPSJub25lIiBzdHJva2U9IiM4MmUwYWEiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz48L3N2Zz4="/><h3>pepper</h3><p>A green, red, or yellow vegetable used in cooking.</p><button class="audio" data-say="pepper">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="meatballs" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAsMjE1KSI+CiAgPGVsbGlwc2UgY3g9IjAiIGN5PSI0NSIgcng9IjE3NSIgcnk9IjQ4IiBmaWxsPSIjZmZmZmZmIiBzdHJva2U9IiNjYmQ4ZDAiIHN0cm9rZS13aWR0aD0iNSIvPgogIDxlbGxpcHNlIGN4PSIwIiBjeT0iMzUiIHJ4PSIxNDAiIHJ5PSIzNCIgZmlsbD0iI2U3NGMzYyIvPgogIDxjaXJjbGUgY3g9Ii01NSIgY3k9IjEyIiByPSIzNiIgZmlsbD0iIzdlNGEyOCIvPgogIDxjaXJjbGUgY3g9IjU1IiBjeT0iMTIiIHI9IjM2IiBmaWxsPSIjN2U0YTI4Ii8+CiAgPGNpcmNsZSBjeD0iMCIgY3k9Ii0xNiIgcj0iMzgiIGZpbGw9IiM4ZTU0MmUiLz4KICA8Y2lyY2xlIGN4PSItMTgiIGN5PSIyNSIgcj0iMzQiIGZpbGw9IiM2ZTNmMjEiLz4KICA8Y2lyY2xlIGN4PSIzMCIgY3k9IjI2IiByPSIzMyIgZmlsbD0iIzhlNTQyZSIvPgogIDxjaXJjbGUgY3g9Ii0xMCIgY3k9Ii0yNiIgcj0iNSIgZmlsbD0iIzUyMmMxNCIvPjxjaXJjbGUgY3g9IjE0IiBjeT0iLTEyIiByPSI0IiBmaWxsPSIjNTIyYzE0Ii8+CiAgPGNpcmNsZSBjeD0iLTYyIiBjeT0iNSIgcj0iNCIgZmlsbD0iIzUyMmMxNCIvPjxjaXJjbGUgY3g9IjYyIiBjeT0iOCIgcj0iNSIgZmlsbD0iIzUyMmMxNCIvPgogIDxwYXRoIGQ9Ik0tMTIgLTUyIFEwIC02NiAxNCAtNTIgUTAgLTQyIC0xMiAtNTIgWiIgZmlsbD0iIzI3YWU2MCIvPgo8L2c+PC9zdmc+"/><h3>meatballs</h3><p>Small round balls made of cooked meat.</p><button class="audio" data-say="meatballs">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="sauce" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAsMTk1KSI+CiAgPHJlY3QgeD0iLTc4IiB5PSItNjUiIHdpZHRoPSIxNTYiIGhlaWdodD0iMTg1IiByeD0iMjgiIGZpbGw9IiNlNzRjM2MiLz4KICA8cmVjdCB4PSItNzgiIHk9Ii02NSIgd2lkdGg9IjQyIiBoZWlnaHQ9IjE4NSIgcng9IjIwIiBmaWxsPSIjZmY3NjY5IiBvcGFjaXR5PSIwLjM1Ii8+CiAgPHJlY3QgeD0iLTY2IiB5PSItOTIiIHdpZHRoPSIxMzIiIGhlaWdodD0iMzAiIHJ4PSI4IiBmaWxsPSIjZjNiNjNmIi8+CiAgPHJlY3QgeD0iLTYyIiB5PSItMTIiIHdpZHRoPSIxMjQiIGhlaWdodD0iODIiIHJ4PSIxMiIgZmlsbD0iI2ZmZmFmMCIvPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIyMCIgcj0iMTgiIGZpbGw9IiNkOTRjNDUiLz4KICA8cGF0aCBkPSJNLTggMyBRMCAtNiA4IDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI3YWU2MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8dGV4dCB4PSIwIiB5PSI1NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjE2IiBmaWxsPSIjMjQzYjU1Ij5TQVVDRTwvdGV4dD4KPC9nPjwvc3ZnPg=="/><h3>sauce</h3><p>A thick liquid served with food to add flavor.</p><button class="audio" data-say="sauce">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="tuna" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAsMjEwKSI+CiAgPHBhdGggZD0iTS0xMTUgLTEwIFY1NSBRMCA5NSAxMTUgNTUgVi0xMCBaIiBmaWxsPSIjM2I3ZWExIi8+CiAgPGVsbGlwc2UgY3g9IjAiIGN5PSItMTAiIHJ4PSIxMTUiIHJ5PSIzOCIgZmlsbD0iI2Q4ZTRlYyIgc3Ryb2tlPSIjOWZiM2MyIiBzdHJva2Utd2lkdGg9IjUiLz4KICA8ZWxsaXBzZSBjeD0iMCIgY3k9Ii0xMCIgcng9Ijk4IiByeT0iMjkiIGZpbGw9IiNmNGIzOTMiLz4KICA8cGF0aCBkPSJNLTU1IC0xMiBRLTI1IC0yNCA1IC0xMCBUNjUgLTEyIiBmaWxsPSJub25lIiBzdHJva2U9IiNkOTg4NmEiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHBhdGggZD0iTS00NSAyIFEtMTAgLTggMjUgNCBUNzAgLTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2Q5ODg2YSIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8ZWxsaXBzZSBjeD0iOTUiIGN5PSItNjIiIHJ4PSI1MiIgcnk9IjE4IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjQgOTUgLTYyKSIgZmlsbD0iI2NmZGJlMyIgc3Ryb2tlPSIjOWZiM2MyIiBzdHJva2Utd2lkdGg9IjQiLz4KPC9nPjwvc3ZnPg=="/><h3>tuna</h3><p>A large sea fish that people eat.</p><button class="audio" data-say="tuna">🔊 Listen</button></article>
+<article class="vocab-card"><img alt="olive" class="vocab-illustration" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzkwIj48ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJiZyIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjZWFmN2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjdmYmZmIi8+PC9saW5lYXJHcmFkaWVudD4KPGZpbHRlciBpZD0ic2hhZG93IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj48ZmVEcm9wU2hhZG93IGR4PSIwIiBkeT0iOCIgc3RkRGV2aWF0aW9uPSI4IiBmbG9vZC1jb2xvcj0iIzE3MzI0ZCIgZmxvb2Qtb3BhY2l0eT0iLjE2Ii8+PC9maWx0ZXI+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHJ4PSIyOCIgZmlsbD0idXJsKCNiZykiLz4KPGNpcmNsZSBjeD0iNTQwIiBjeT0iNzIiIHI9IjQwIiBmaWxsPSIjZmZmMmI3Ii8+CjxwYXRoIGQ9Ik0wIDMwMCBRMTQwIDI2MCAyODAgMzAwIFQ2NDAgMjkwIFYzOTAgSDBaIiBmaWxsPSIjZGZmMWU0Ii8+CjxwYXRoIGQ9Ik0wIDMzNSBRMTYwIDMxMCAzMjAgMzQwIFQ2NDAgMzMwIFYzOTAgSDBaIiBmaWxsPSIjYmZlM2NiIi8+CjxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAsMjAwKSI+CiAgPHBhdGggZD0iTS0xMCAtNjUgUTQ1IC0xMTUgMTE1IC04NSBRNzUgLTM1IC0xMCAtNjUgWiIgZmlsbD0iIzI3YWU2MCIvPgogIDxwYXRoIGQ9Ik0tMTAgLTY1IFEtNjUgLTExMCAtMTIwIC03NSBRLTc1IC0zMCAtMTAgLTY1IFoiIGZpbGw9IiMyZWNjNzEiLz4KICA8ZWxsaXBzZSBjeD0iLTQyIiBjeT0iMTgiIHJ4PSI0NCIgcnk9IjYyIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTggLTQyIDE4KSIgZmlsbD0iIzU1OGIyZiIvPgogIDxlbGxpcHNlIGN4PSItNTUiIGN5PSItMiIgcng9IjEwIiByeT0iMTgiIHRyYW5zZm9ybT0icm90YXRlKC0xOCAtNTUgLTIpIiBmaWxsPSIjOWNjYzY1IiBvcGFjaXR5PSIwLjciLz4KICA8ZWxsaXBzZSBjeD0iNDYiIGN5PSIyNiIgcng9IjQyIiByeT0iNTgiIHRyYW5zZm9ybT0icm90YXRlKDIwIDQ2IDI2KSIgZmlsbD0iIzI2MzIzOCIvPgogIDxlbGxpcHNlIGN4PSI1OCIgY3k9IjUiIHJ4PSI5IiByeT0iMTYiIHRyYW5zZm9ybT0icm90YXRlKDIwIDU4IDUpIiBmaWxsPSIjNzg5MDljIiBvcGFjaXR5PSIwLjYiLz4KPC9nPjwvc3ZnPg=="/><h3>olive</h3><p>A small green or black fruit eaten or put on pizza.</p><button class="audio" data-say="olive">🔊 Listen</button></article>
+</div>
+</section>
+<section class="panel" id="grammar">
+<div class="section-head"><div><h2>03. Grammar Capsule</h2><div class="section-sub">Use have to and don't have to to talk about rules and things that are necessary or not necessary.</div></div></div>
+<div class="grammar-grid">
+<article class="grammar-card have"><h3>Have to</h3><p>Use <strong>have to</strong> when something is necessary or it is a rule.</p><div class="example">We always <b>have to</b> do our homework.</div><div class="example">We <b>have to</b> be polite and on time.</div></article>
+<article class="grammar-card has"><h3>Don't have to</h3><p>Use <strong>don't have to</strong> when something is not necessary.</p><div class="example">You <b>don't have to</b> pay for the pizzas!</div><div class="example">We <b>don't have to</b> type our homework.</div></article>
+</div>
+<div class="rule-note"><strong>Remember:</strong> After <em>have to</em> or <em>don't have to</em>, always use the base form of the verb (go, pay, do, type, wear).</div>
+</section>
+<section class="panel" id="practice">
+<div class="section-head"><div><h2>04. Interactive Practice</h2><div class="section-sub">Choose the best answer based on the story and grammar rules. Then check your work.</div></div><div class="score-box"><span class="label">Score</span><span class="points" id="score">—</span><span class="max">/ 10</span></div></div>
+<div class="activity-list" id="quiz">
+<div class="question" data-answer="At Tony's Pizza Place"><p>1. Where are the children at the beginning of the story?</p><div class="options"><label class="option"><input name="q1" type="radio" value="At school"/> At school</label><label class="option"><input name="q1" type="radio" value="At Tony's Pizza Place"/> At Tony's Pizza Place</label><label class="option"><input name="q1" type="radio" value="At the supermarket"/> At the supermarket</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="He is hungry."><p>2. Why does Kevin want to order right away?</p><div class="options"><label class="option"><input name="q2" type="radio" value="He is tired."/> He is tired.</label><label class="option"><input name="q2" type="radio" value="He is hungry."/> He is hungry.</label><label class="option"><input name="q2" type="radio" value="He likes tuna."/> He likes tuna.</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="Mushrooms"><p>3. Which topping does Kevin NOT like?</p><div class="options"><label class="option"><input name="q3" type="radio" value="Mushrooms"/> Mushrooms</label><label class="option"><input name="q3" type="radio" value="Cheese"/> Cheese</label><label class="option"><input name="q3" type="radio" value="Peppers"/> Peppers</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="Tuna pizza"><p>4. Which pizza does Mark say "No way!" to?</p><div class="options"><label class="option"><input name="q4" type="radio" value="Cheese and meatballs"/> Cheese and meatballs</label><label class="option"><input name="q4" type="radio" value="Tuna pizza"/> Tuna pizza</label><label class="option"><input name="q4" type="radio" value="Pepper and olive pizza"/> Pepper and olive pizza</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="Two pizzas"><p>5. How many pizzas do the children order?</p><div class="options"><label class="option"><input name="q5" type="radio" value="One pizza"/> One pizza</label><label class="option"><input name="q5" type="radio" value="Two pizzas"/> Two pizzas</label><label class="option"><input name="q5" type="radio" value="Three pizzas"/> Three pizzas</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="They are the 100th order."><p>6. Why don't the children have to pay for the pizzas?</p><div class="options"><label class="option"><input name="q6" type="radio" value="They have no money."/> They have no money.</label><label class="option"><input name="q6" type="radio" value="They are the 100th order."/> They are the 100th order.</label><label class="option"><input name="q6" type="radio" value="The pizzas are cold."/> The pizzas are cold.</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="don't have"><p>7. Complete the rule: You ______ to go to the supermarket today.</p><div class="options"><label class="option"><input name="q7" type="radio" value="don't have"/> don't have</label><label class="option"><input name="q7" type="radio" value="doesn't have"/> doesn't have</label><label class="option"><input name="q7" type="radio" value="has"/> has</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="have to"><p>8. Complete the school rule: We always ______ do our homework.</p><div class="options"><label class="option"><input name="q8" type="radio" value="has to"/> has to</label><label class="option"><input name="q8" type="radio" value="have to"/> have to</label><label class="option"><input name="q8" type="radio" value="don't have to"/> don't have to</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="don't have to"><p>9. Complete the school rule: We ______ type our homework.</p><div class="options"><label class="option"><input name="q9" type="radio" value="don't have to"/> don't have to</label><label class="option"><input name="q9" type="radio" value="has to"/> has to</label><label class="option"><input name="q9" type="radio" value="have"/> have</label></div><div class="feedback"></div></div>
+<div class="question" data-answer="The check"><p>10. What do you ask the waiter for when you finish eating?</p><div class="options"><label class="option"><input name="q10" type="radio" value="The menu"/> The menu</label><label class="option"><input name="q10" type="radio" value="The check"/> The check</label><label class="option"><input name="q10" type="radio" value="The dough"/> The dough</label></div><div class="feedback"></div></div>
+</div>
+<div class="progress"><span id="progressBar"></span></div>
+<p class="section-sub" id="progressText">0 of 10 questions answered.</p>
+</section>
+<section aria-live="polite" class="result-panel">
+<div class="copy"><h2 id="resultTitle">Your Learning Progress</h2><p id="resultMessage">Complete the interactive practice to see your result here.</p></div>
+<div class="total-score" id="resultScore">— / 10</div>
+</section>
+<footer class="footer">Al-Bayariq Private Schools · Primary Section<br/><strong>Prepared by Mr. Khalil Mohammed</strong></footer>
+</div>
+<script>
+(function(){
+ const practiceQuestions=[...document.querySelectorAll('#quiz .question')];
+ const allQuestions=[...practiceQuestions];
+ const scoreEl=document.getElementById('score');
+ const progressBar=document.getElementById('progressBar');
+ const progressText=document.getElementById('progressText');
+ const nameInput=document.getElementById('studentName');
+ function updateProgress(){
+  const answered=practiceQuestions.filter(q=>q.querySelector('input:checked')).length;
+  progressBar.style.width=(answered/practiceQuestions.length*100)+'%';
+  progressText.textContent=answered+' of '+practiceQuestions.length+' practice questions answered.';
+ }
+ allQuestions.forEach(q=>q.addEventListener('change',updateProgress));
+ function gradeGroup(group){
+  let score=0;
+  group.forEach(q=>{
+   const expected=q.dataset.answer;
+   const selected=q.querySelector('input:checked');
+   const feedback=q.querySelector('.feedback');
+   q.classList.remove('correct','incorrect');
+   q.querySelectorAll('.option').forEach(o=>o.classList.remove('correct','incorrect'));
+   if(selected && selected.value===expected){
+    score++;q.classList.add('correct');selected.closest('.option').classList.add('correct');
+    feedback.textContent='Correct!';feedback.className='feedback good';
+   }else{
+    q.classList.add('incorrect');
+    if(selected)selected.closest('.option').classList.add('incorrect');
+    feedback.textContent=selected?'Not quite. Try again.':'Choose an answer.';
+    feedback.className='feedback bad';
+   }
+  });
+  return score;
+ }
+ function checkAll(){
+  const practiceScore=gradeGroup(practiceQuestions);
+  scoreEl.textContent=practiceScore;
+  const total=practiceScore;
+  document.getElementById('resultScore').textContent=total+' / 10';
+  const student=nameInput.value.trim();
+  document.getElementById('resultTitle').textContent=student?student+"'s Learning Result":"Your Learning Result";
+  document.getElementById('resultMessage').textContent=total===10?'Excellent work! You answered all questions correctly.':total>=7?'Very good work! Review the questions you missed.':'Keep practising. Review the lesson and try again.';
+ }
+ function resetAll(){
+  allQuestions.forEach(q=>{
+   q.querySelectorAll('input').forEach(i=>i.checked=false);
+   q.classList.remove('correct','incorrect');
+   q.querySelectorAll('.option').forEach(o=>o.classList.remove('correct','incorrect'));
+   const f=q.querySelector('.feedback');f.textContent='';f.className='feedback';
+  });
+  scoreEl.textContent='—';
+  document.getElementById('resultScore').textContent='— / 10';
+  document.getElementById('resultTitle').textContent='Your Learning Progress';
+  document.getElementById('resultMessage').textContent='Complete the interactive practice to see your result here.';
+  updateProgress();
+ }
+ document.getElementById('checkAll').addEventListener('click',checkAll);
+ document.getElementById('resetAll').addEventListener('click',resetAll);
+ document.querySelectorAll('[data-say]').forEach(btn=>btn.addEventListener('click',()=>{
+  if(!('speechSynthesis' in window)){alert('Audio is not supported in this browser.');return;}
+  speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(btn.dataset.say);
+  utterance.lang='en-GB';utterance.rate=.88;speechSynthesis.speak(utterance);
+ }));
+ updateProgress();
+})();
+</script>
+</body>
+</html>
